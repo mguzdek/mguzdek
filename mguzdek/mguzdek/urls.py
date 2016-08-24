@@ -24,12 +24,6 @@ urlpatterns = [
     url(r'^posts/', include("posts.urls", namespace='posts')),
 ]
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    #'/var/www/static/',
-]
-
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
-
-MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_cdn")
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
