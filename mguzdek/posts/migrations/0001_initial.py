@@ -21,7 +21,13 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=120)),
                 ('height_field', models.IntegerField(default=0)),
                 ('width_field', models.IntegerField(default=0)),
-                ('image', models.ImageField(blank=True, height_field='height_field', null=True, upload_to=posts.models.upload_location, width_field='width_field')),
+                ('image', models.ImageField(
+                    blank=True,
+                    height_field='height_field',
+                    null=True,
+                    upload_to=posts.models.upload_location,
+                    width_field='width_field')
+                ),
                 ('content', models.TextField()),
                 ('updated', models.DateTimeField(auto_now=True)),
                 ('timestamp', models.DateTimeField(auto_now_add=True)),
