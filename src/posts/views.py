@@ -26,7 +26,6 @@ def post_create(request):
     }
     return render(request, "post_form.html", context)
 
-
 def post_list(request):
     today = timezone.now().date()
     queryset_list = Post.objects.active()
@@ -99,7 +98,6 @@ def post_delete(request, slug=None):
     instance.delete()
     messages.success(request, "Successfully deleted")
     return redirect("posts:list")
-
 
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
