@@ -1,56 +1,29 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="content">
     <div class="container">
-        <div class="content-grids">
-            <div class="col-md-8 content-main">
-                <div class="content-grid">			
-                    {% for obj in objects_list %}
-                        <div class="content-grid-info">
-                            {% if obj.image %} 
-                                <img src='{{obj.image.url}}' class='img-responsive'/>
-                            {% endif %}
-                            <div class="post-info">
-                                {% if obj.draft %}<h3>Staff only: Draft {% endif %} {% if instance.publish > today %} <h3> Future Post </h3> {% endif %} </h3>
-                                <h4><a href="{{ obj.get_absolute_url }}">{{obj.title}}</a> {{obj.publish}} </h4>
-                                {% if obj.user.get_full_name %}<p>Author: {{ obj.user.get_full_name }}</p>{% endif %}
-                                <p>{{obj.content|linebreaks|truncatechars:120}}</p>
-                                <a href="{{ obj.get_absolute_url }}"><span></span>READ MORE</a>
-                            </div>
-                        </div>
-                    {% endfor %}
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                {% for obj in objects_list %}
+                <div class="post-preview">
+                    <a href="{{ obj.get_absolute_url }}">
+                        <h2 class="post-title">
+                           {{obj.title}}
+                        </h2>
+                        <h3 class="post-subtitle">
+                            {{obj.content|safe|linebreaks|truncatechars:200}}
+                        </h3>
+                    </a>
+                    <p class="post-meta">Posted on {{obj.publish}}</p>
                 </div>
+                <hr>  
+                {% endfor %}  
+                                <!-- Pager -->
+                <ul class="pager">
+                    <li class="next">
+                        <a href="#">Older Posts &rarr;</a>
+                    </li>
+                </ul>           
             </div>
-            <div class="col-md-4 content-right">
-                <div class="clearfix"></div>
-                <div class="categories">
-                    <h3>CATEGORIES</h3>
-                    <ul>
-                    <li><a href="#">Self-development</a></li>
-                    <li><a href="#">How to..</a></li>
-                    <li><a href="#">Software craftmanship</a></li>
-                    <li><a href="#">Dev events & conferences</a></li>
-                    </ul>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-            <div class="clearfix"></div>
         </div>
     </div>
-</div>
-<div class="pagination">
-    <span class="step-links">
-        {% if objects_list.has_previous %}
-            <a href="?{{ page_request_var }}={{ objects_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{%endif%}">previous</a>
-        {% endif %}
-
-        <span class="current">
-            Page {{ objects_list.number }} of {{ objects_list.paginator.num_pages }}.
-        </span>
-
-        {% if objects_list.has_next %}
-            <a href="?{{ page_request_var }}={{ objects_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{%endif%}">next</a>
-        {% endif %}
-    </span>
-</div>
 {% endblock content %}

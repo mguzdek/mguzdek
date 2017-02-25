@@ -1,0 +1,37 @@
+
+{% extends "base.html" %}
+
+{% block head_title %}{{ instance.title }} || {{ block.super }}
+{% endblock head_title %}
+
+{% block content %}
+    <header class="intro-header" style="background-image: url('images/post-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>{{ instance.title }}</h1>
+                        <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
+                        <span class="meta">Posted on {{instance.publish}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    {{ instance.content|safe }}
+                </div>
+            </div>
+        </div>
+        <div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts="5"></div>
+    </article>
+
+    <hr>
+    <br/>
+
+{% endblock content %}
