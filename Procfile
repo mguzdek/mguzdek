@@ -1,1 +1,1 @@
-web: gunicorn mguzdek.wsgi --log-file -
+web: gunicorn mguzdek.wsgi
