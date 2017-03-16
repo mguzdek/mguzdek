@@ -99,3 +99,10 @@ ENV/
 # Rope project settings
 .ropeproject
 *.pyc
+/Scripts/*
+/Scripts/*.bat
+/Scripts/*.ps1
+/Scripts/*.py
+/Scripts/*.exe
+/Scripts/*.dll
+/*.cfg
