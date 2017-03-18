@@ -1,3 +1,3 @@
 from mguzdek.settings.base import *
 
-DEBUG = False
+DEBUG = True
