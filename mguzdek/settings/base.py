@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 SECRET_KEY = 'xbknk-@=v$$og%@-702_6()t%c@86+lx7cvle%^_8oi#)k^6^s'
 
 
-ALLOWED_HOSTS = [ 'www.mguzdek.pl', 'mguzdek.pl']
+ALLOWED_HOSTS = [ 'stormy-scrubland-95456.herokuapp.com', 'www.mguzdek.pl', 'mguzdek.pl']
 
 
 # Application definition
