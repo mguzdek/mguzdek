@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-ALLOWED_HOSTS = ['stormy-scrubland-95456.herokuapp.com', 'www.mguzdek.pl', 'mguzdek.pl']
+ALLOWED_HOSTS = ['stormy-scrubland-95456.herokuapp.com', 'www.mguzdek.com', 'mguzdek.com']
 
 
 # Application definition
